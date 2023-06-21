@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      color: #333333;
+      margin-top: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #555555;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+    }
+
+    .form-group input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .form-group .forgot-password {
+      margin-top: 10px;
+      text-align: right;
+      font-size: 14px;
+      color: #888888;
+    }
+
+    .form-group .forgot-password a {
+      color: #888888;
+      text-decoration: none;
+    }
+
+    .form-group .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="Company Logo">
+      <h1><span style ="color:#C2A416">JABC</span><span style = "color:#167EC2">rypt</span></h1>
+    </div>
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Login">
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+    </form>
+    <div id="login-success" class="hidden">
+      <p>Login successful!</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // You can add your own validation logic here before displaying the success message
+
+      showLoginSuccess(username);
+      window.location.href = "http://localhost:8000";
+    });
+    
+    function showLoginSuccess(username) {
+      var successDiv = document.getElementById("login-success");
+      successDiv.classList.remove("hidden");
+      successDiv.querySelector("p").textContent = "Login successful! Welcome, " + username + "!";
+    }
+  </script>
+</body>
+</html>
+
+ 

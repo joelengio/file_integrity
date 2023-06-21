@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Integrity Checker Settings</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Integrity Checker Settings</h1>
+    <form action="save_settings.php" method="POST">
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="notification">Receive Email Notifications:</label>
+        <input type="checkbox" name="notification" id="notification">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Settings</button>
+    </form>
+  </div>
+</body>
+</html>

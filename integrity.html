@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uploaded Files</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>        
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+ 
+  <style>
+    body {
+     background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-family: Arial, sans-serif;
+      
+    }
+
+    .container {
+      
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding: 40px;
+      background-color: white;
+      
+
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #nav img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    #nav{
+      float:left;
+      background-color: red;
+      height: 100%;
+
+    }
+
+    .header h1 {
+      font-size: 24px;
+      color: #333333;
+      margin-top: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+    }
+
+    .details-btn {
+      margin-right: 10px;
+    }
+
+    .tick-mark {
+      font-size: 20px;
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div id ="nav">
+     
+    </div>
+  <div class="container">
+    
+      <div class="header">
+        
+        <h1><span style ="color:#C2A416">JABC</span><span style = "color:#167EC2">rypt</span></h1>
+    </div>
+  <h2>Uploaded Files</h2>
+  <table>
+    <tr>
+      <th>Preview</th>
+      <th>File Name</th>
+      <th>File Size</th>
+      <th>Last Modified</th>
+      <th>Creation Date</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td><img class="thumbnail" src="uploads/image1.jpg" alt="Preview"></td>
+      <td>image1.jpg</td>
+      <td>2.5 MB</td>
+      <td>June 18, 2023 10:30 AM</td>
+      <td>June 17, 2023 3:45 PM</td>
+      <td>
+        <button class="btn btn-info details-btn" onclick="showDetails('image1.jpg')">Details</button>
+        <button class="btn btn-warning" onclick="revert('image1.jpg')">Revert</button>
+        <span class="tick-mark">&#10004;</span>
+      </td>
+    </tr>
+    <tr>
+      <td><img class="thumbnail" src="uploads/image2.jpg" alt="Preview"></td>
+      <td>image2.jpg</td>
+      <td>1.8 MB</td>
+      <td>June 19, 2023 9:15 AM</td>
+      <td>June 18, 2023 2:20 PM</td>
+      <td>
+        <button class="btn btn-info details-btn" onclick="showDetails('image2.jpg')">Details</button>
+        <button class="btn btn-warning" onclick="revert('image2.jpg')">Revert</button>
+        <span class="tick-mark">&#10004;</span>
+      </td>
+    </tr>
+    <!-- Add more rows for each uploaded file -->
+  </table>
+
+  <div id="details-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">File Details</h4>
+        </div>
+        <div class="modal-body">
+          <p><strong>File Name:</strong> <span id="details-filename"></span></p>
+          <p><strong>File Size:</strong> <span id="details-filesize"></span></p>
+          <p><strong>Last Modified:</strong> <span id="details-lastmodified"></span></p>
+          <p><strong>Creation Date:</strong> <span id="details-creationdate"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script>
+    function showDetails(filename) {
+      // Replace these placeholder values with actual file details
+      var fileSize = "2.5 MB";
+      var lastModified = "June 18, 2023 10:30 AM";
+      var creationDate = "June 17, 2023 3:45 PM";
+
+      $("#details-filename").text(filename);
+      $("#details-filesize").text(fileSize);
+      $("#details-lastmodified").text(lastModified);
+      $("#details-creationdate").text(creationDate);
+
+      $("#details-modal").modal("show");
+    }
+
+    function revert(filename) {
+      // Add your code here to handle the revert action
+      console.log("Revert: " + filename);
+    }
+  </script>
+</body>
+</html>
